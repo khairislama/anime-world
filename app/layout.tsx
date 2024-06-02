@@ -33,7 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mx-auto bg-background">
+          <main className="mx-auto max-w-7xl 2k:max-w-10xl bg-background">
             <Header />
             <Hero />
             {children}

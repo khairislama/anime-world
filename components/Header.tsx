@@ -5,7 +5,7 @@ import Search from "./clients/Search";
 
 function Header() {
   return (
-    <nav className="bg-background/50 shadow-sm sticky top-0 z-50 mx-auto max-w-7xl 2k:max-w-10xl">
+    <nav className="bg-background/50 shadow-sm sticky top-0 z-50">
       <div className="px-8 py-2 flex items-center justify-between">
         {/* LOGO */}
         <Link href="/" className="flex items-center" prefetch={false}>
