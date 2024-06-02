@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { SearchIcon } from "lucide-react";
-import { Input } from "../ui/input";
+import DebouncedInput from "../ui/DebouncedInput";
 
 function Search() {
   return (
@@ -14,10 +14,10 @@ function Search() {
         <SearchIcon className="h-5 w-5" />
         <span className="sr-only">Search</span>
       </Button>
-      <Input
-        type="search"
+      <DebouncedInput
         placeholder="Search..."
-        className="pl-10 pr-4 py-2 rounded-md focus:ring-1 focus:ring-secondary"
+        className="pl-12 pr-4 py-2 rounded-md focus:ring-1 focus:ring-secondary"
+        queryParam="search"
       />
     </div>
   );

@@ -5,24 +5,26 @@ import Search from "./clients/Search";
 
 function Header() {
   return (
-    <nav className="flex items-center justify-between px-4 py-3 bg-background shadow-sm">
-      {/* LOGO */}
-      <Link href="/" className="flex items-center" prefetch={false}>
-        <Image
-          src="/logo.png"
-          alt="logo"
-          width={100}
-          height={100}
-          className="object-contain"
-        />
-        <span className="sr-only">Anime world</span>
-      </Link>
+    <nav className="bg-background/50 shadow-sm sticky top-0 z-50 mx-auto max-w-7xl 2k:max-w-10xl">
+      <div className="px-8 py-2 flex items-center justify-between">
+        {/* LOGO */}
+        <Link href="/" className="flex items-center" prefetch={false}>
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={80}
+            height={80}
+            className="object-contain"
+          />
+          <span className="sr-only">Anime world</span>
+        </Link>
 
-      {/* SEARCH */}
-      <Search />
+        {/* SEARCH */}
+        <Search />
 
-      {/* THEME TOGGLER */}
-      <ModeToggle />
+        {/* THEME TOGGLER */}
+        <ModeToggle />
+      </div>
     </nav>
   );
 }
