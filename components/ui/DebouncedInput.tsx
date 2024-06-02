@@ -2,7 +2,7 @@
 // Writer: Khairi SLAMA
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Input } from "./input";
 
@@ -19,47 +19,35 @@ const DebouncedInput: React.FC<DebouncedInputProps> = ({
   delay = 300,
   queryParam,
 }) => {
-  const [value, setValue] = useState("");
-  const [debouncedValue, setDebouncedValue] = useState("");
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const defaultSearchQuery = searchParams.get(queryParam) ?? "";
+  const [value, setValue] = useState(defaultSearchQuery);
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name.toLocaleLowerCase(), value.toLocaleLowerCase());
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const params = new URLSearchParams(searchParams.toString());
+    const value = event.target.value;
+    setValue(value);
 
-      return params.toString();
-    },
-    [searchParams]
-  );
+    // Clear the previous timer
+    if (timer) {
+      clearTimeout(timer);
+    }
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
+    const newTimer = setTimeout(() => {
+      value !== "" ? params.set(queryParam, value) : params.delete(queryParam);
+      router.replace(`?${params.toString()}`, { scroll: false });
     }, delay);
 
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  useEffect(() => {
-    if (router && debouncedValue !== "" && value === debouncedValue) {
-      router.replace(pathname + "?" + createQueryString(queryParam, value), {
-        scroll: false,
-      });
-    }
-  }, [debouncedValue, queryParam, router, createQueryString, pathname, value]);
-
-  if (!router) return null;
+    setTimer(newTimer);
+  };
 
   return (
     <Input
       type="search"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={handleInputChange}
       placeholder={placeholder}
       className={className}
     />
