@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
+import ThreeBackground from "@/components/ThreeBackground";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* <ThreeBackground /> */}
           <main className="mx-auto max-w-7xl 2k:max-w-10xl bg-background">
             <Header />
             <Hero />
