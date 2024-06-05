@@ -1,9 +1,9 @@
 "use client";
 
-import { fetchAnime } from "@/app/action";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
+import { fetchAnime } from "@/app/action";
 import AnimeCard from "./AnimeCard";
 
 let page = 2;
@@ -16,7 +16,7 @@ function LoadMore() {
 
   useEffect(() => {
     if (inView) {
-      fetchAnime(page, 5).then((res) => {
+      fetchAnime(page).then((res) => {
         setData([...data, ...res]);
         page++;
       });
@@ -25,7 +25,7 @@ function LoadMore() {
 
   return (
     <>
-      <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+      <section className="grid 2k:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
         {data}
       </section>
       <section className="flex justify-center items-center w-full">
