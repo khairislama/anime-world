@@ -14,6 +14,7 @@ function Hero() {
           src="/banner.jpg"
           alt="anime"
           fill
+          priority
           sizes="100vw, (max-width: 1500px) 70vw, (max-width: 1200px) 50vw,(max-width: 768px) 30vw"
           className="object-cover"
         />
