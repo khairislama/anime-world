@@ -18,7 +18,7 @@ To get started with Anime World, follow these steps:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/anime-world.git
+   git clone https://github.com/khairislama/anime-world.git
    cd anime-world
    ```
 
@@ -42,7 +42,6 @@ Once the application is running, you can:
 
 - ✅ **Explore Anime:** Browse through the grid of popular anime.
 - ✅ **Load More:** Scroll down to automatically load more anime.
-- ❌ **View Details:** Hover over an anime card to see its details, including episodes and rating.
 - ❌ **Search by anime name:** type anime title in the search input at the top (only from view).
 
 ## Potential Improvements
@@ -50,7 +49,6 @@ Once the application is running, you can:
 - 🤔 **Add Search Functionality:** Allow users to search for specific anime.
 - 🤔 **Enhanced Animations:** Experiment with more complex Framer Motion animations.
 - 🤔 **Detailed Anime Page:** Create a detailed view for each anime with more information.
-- 🤔 **Elastic Search:** experiment the elastic search world.
 
 ## Conclusion
 
@@ -58,6 +56,10 @@ Anime World is a modern and efficient way to explore popular anime, leveraging t
 
 ---
 
-Happy Coding! 🚀
+## 📫 Contact
 
-Khairi Slama
+Feel free to reach out with any questions, suggestions, or to share your own experiments:
+
+- **Khairi Slama**: [LinkedIn](https://www.linkedin.com/in/khairi-slama/) | [Twitter](https://x.com/khairislama) | [Email](mailto:khairi.slama.1996.br@gmail.com)
+
+Happy Coding! 🚀
